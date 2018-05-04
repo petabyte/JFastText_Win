@@ -1,3 +1,20 @@
+## Notes for this specific version of the repo
+This is a fork of the JFastText repository from github. This is specifically configured to compile the FastText cpp code in windows. Please ask george.sanchez@tr.com if you have any questions about this repo.
+
+## Instructions and notes to compile this on windows
+1. Download mingw with a gcc compiler suite - 
+   Use this one it already comes with gcc (https://mingw-w64.org/doku.php)
+   if you want you can download mingw and setup gcc separately
+2. Make sure the gcc is in your windows PATH
+  e.g. C:\msys64\usr\bin;C:\mingw-w64\mingw64\bin;
+3. Now you can trigger the maven clean install for this project
+  Notes: if you want to compile this for another platform- change the following build plugin properties in the pom.
+   
+                <configuration>
+                    <properties>windows-x86_64-mingw</properties>
+                </configuration>
+
+
 ## Introduction
 JFastText is a Java wrapper for Facebook's [fastText](https://github.com/facebookresearch/fastText), 
 a library for efficient learning of word embeddings and fast sentence classification. The JNI interface
