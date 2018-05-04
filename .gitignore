@@ -1,0 +1,7 @@
+.idea/
+target/
+*.iml
+*.bin
+*.vec
+examples/cmd/data
+examples/cmd/result
