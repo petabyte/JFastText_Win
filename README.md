@@ -8,7 +8,12 @@ This is a fork of the JFastText repository from github. This is specifically con
 2. Make sure the gcc is in your windows PATH
   e.g. C:\msys64\usr\bin;C:\mingw-w64\mingw64\bin;
 3. Now you can trigger the maven clean install for this project
-  Notes: if you want to compile this for another platform- change the following build plugin properties in the pom.
+4. Modified fastext.cc to use the mingw.thread.h header instead of the standard thread.h
+   This is to address the error std::thread when using the g++ plus compiler on mingw
+   (https://github.com/meganz/mingw-std-threads)
+     
+   Notes: 
+   if you want to compile this for another platform- change the following build plugin properties in the pom.
    
                 <configuration>
                     <properties>windows-x86_64-mingw</properties>
