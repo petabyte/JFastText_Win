@@ -10,7 +10,7 @@
 #ifndef FASTTEXT_FASTTEXT_H
 #define FASTTEXT_FASTTEXT_H
 
-#define FASTTEXT_VERSION 11 /* Version 1a */
+#define FASTTEXT_VERSION 12 /* Version 1b */
 #define FASTTEXT_FILEFORMAT_MAGIC_INT32 793712314
 
 #include <time.h>
@@ -49,11 +49,13 @@ class FastText {
     bool checkModel(std::istream&);
 
     bool quant_;
+    int32_t version;
 
   public:
     FastText();
 
-    void getVector(Vector&, const std::string&);
+    void getVector(Vector&, const std::string&) const;
+    std::shared_ptr<const Dictionary> getDictionary() const;
     void saveVectors();
     void saveOutput();
     void saveModel();
@@ -88,6 +90,7 @@ class FastText {
     void train(std::shared_ptr<Args>);
 
     void loadVectors(std::string);
+    int getDimension() const;
 };
 
 }
